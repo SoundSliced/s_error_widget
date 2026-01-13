@@ -2,6 +2,8 @@
 
 A highly customizable and reusable error widget for Flutter applications. `s_error_widget` allows you to display error states with headers, icons, exception details, and retry actions in a consistent and visually appealing way.
 
+![s_error_widget example](https://raw.githubusercontent.com/SoundSliced/s_error_widget/main/example/assets/example.gif)
+
 ## Features
 
 *   **Customizable Structure**: Configurable header text, exception message, and icons.
