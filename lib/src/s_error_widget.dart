@@ -79,65 +79,67 @@ class SErrorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: backgroundColor ?? const Color(0xFF38C071),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            if (icon != null)
-              icon!
-            else
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (icon != null)
+                icon!
+              else
+                Text(
+                  "\u26A0",
+                  style: headerTextStyle?.copyWith(fontSize: 40) ??
+                      const TextStyle(
+                        color: Colors.white,
+                        fontSize: 40,
+                      ),
+                ),
+              const SizedBox(height: 8),
               Text(
-                "\u26A0",
-                style: headerTextStyle?.copyWith(fontSize: 40) ??
+                headerText ?? "Error!",
+                textAlign: TextAlign.center,
+                style: headerTextStyle ??
                     const TextStyle(
                       color: Colors.white,
-                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
               ),
-            const SizedBox(height: 8),
-            Text(
-              headerText ?? "Error!",
-              textAlign: TextAlign.center,
-              style: headerTextStyle ??
-                  const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-            ),
-            const SizedBox(height: 10),
-            Flexible(
-              child: exceptionBuilder != null
-                  ? exceptionBuilder!(context, exceptionText)
-                  : SelectableText(
-                      exceptionText,
-                      textDirection: TextDirection.ltr,
-                      cursorColor: Colors.white,
-                      textAlign: TextAlign.center,
-                      style: exceptionTextStyle ??
-                          const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.normal,
-                            fontSize: 14,
-                          ),
-                    ),
-            ),
-            if (onRetry != null) ...[
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: onRetry,
-                style: retryButtonStyle ??
-                    ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black,
-                      elevation: 2,
-                    ),
-                child: Text(retryText ?? "Retry"),
+              const SizedBox(height: 10),
+              Flexible(
+                child: exceptionBuilder != null
+                    ? exceptionBuilder!(context, exceptionText)
+                    : SelectableText(
+                        exceptionText,
+                        textDirection: TextDirection.ltr,
+                        cursorColor: Colors.white,
+                        textAlign: TextAlign.center,
+                        style: exceptionTextStyle ??
+                            const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 14,
+                            ),
+                      ),
               ),
+              if (onRetry != null) ...[
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: onRetry,
+                  style: retryButtonStyle ??
+                      ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                        elevation: 2,
+                      ),
+                  child: Text(retryText ?? "Retry"),
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
