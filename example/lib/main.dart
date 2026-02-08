@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:s_error_widget/s_error_widget.dart';
 
 void main() {
