@@ -18,7 +18,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  s_error_widget: ^2.0.0
+  s_error_widget: ^2.1.0
 ```
 
 ## Usage
@@ -106,3 +106,7 @@ SErrorWidget(
 | `retryText` | `String?` | Label for the retry button. | "Retry" |
 | `retryButtonStyle` | `ButtonStyle?` | Style for the retry button. | Default ElevatedButton style |
 | `exceptionBuilder` | `Widget Function?` | Builder to replace default exception text rendering. | null |
+| `errorCode` | `String?` | Optional error code displayed alongside the header. | null |
+| `stackTrace` | `StackTrace?` | Stack trace displayed in an expandable monospace view. | null |
+| `showCopyButton` | `bool` | Show a button to copy full error details to clipboard. | `false` |
+| `actions` | `List<Widget>?` | Additional action widgets displayed below the error. | null |
