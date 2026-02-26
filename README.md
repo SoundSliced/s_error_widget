@@ -18,7 +18,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  s_error_widget: ^2.1.0
+  s_error_widget: ^3.0.0
 ```
 
 ## Usage
